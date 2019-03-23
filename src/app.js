@@ -105,7 +105,7 @@ passport.deserializeUser((user, done) => {
 });
 
 app.post(
-  '/login',
+  `${BASE_URL}/login`,
   passport.authenticate('local'),
   (req, res) => {
     req.logIn(req.user, (err) => {
@@ -147,7 +147,6 @@ app.use((err, req, res, next) => {
 
   winston.error(`${req.ip} - ${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - `, err);
 
-  // render the error page
   res.status(err.status || 500);
   res.send({
     error: res.locals.error,
