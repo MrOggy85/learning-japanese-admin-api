@@ -25,7 +25,6 @@ const options = {
     json: false,
     colorize: true,
     format: format.combine(
-      // format.colorize(),
       format.timestamp(),
       format.printf((info) => {
         const level = `${info.level.padStart(15, ' ')}:`;
@@ -36,7 +35,7 @@ const options = {
 };
 const logger = winston.createLogger({
   format: winston.format.combine(
-    winston.format.colorize({message: true}),
+    winston.format.colorize({ message: true }),
     winston.format.simple(),
   ),
   transports: [

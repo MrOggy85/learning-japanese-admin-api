@@ -10,6 +10,7 @@
     "start": "nodemon --exec babel-node -- ./src/app.js",
     "debug": "nodemon --inspect-brk --exec babel-node -- ./src/app.js",
     "flow": "flow",
+    "lint": "eslint src/**/*",
     "build": "babel -d dist src -s"
   },
   "dependencies": {
