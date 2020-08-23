@@ -22,6 +22,7 @@ jobs:
       - setup_remote_docker
       - run: docker build -t root_japanese-admin-api:latest .
       - run: docker save -o ./japanese-admin-api.tar root_japanese-admin-api:latest
-      #- run: scp ./japanese-admin-api.tar root@oskarlindgren.se:/root/japanese-admin-api.tar
-      - run: docker -H "ssh://root@oskarlindgren.se" ps
-      - run: docker -H "ssh://root@oskarlindgren.se" load -i ./japanese-admin-api.tar
+      - run: scp ./japanese-admin-api.tar root@oskarlindgren.se:/root/japanese-admin-api.tar
+      - run: ssh -o StrictHostKeyChecking=no root@oskarlindgren.se "/bin/bash docker load -i ./japanese-admin-api.tar"
+      #- run: docker -H "ssh://root@oskarlindgren.se" ps
+      #- run: docker -H "ssh://root@oskarlindgren.se" load -i ./japanese-admin-api.tar
