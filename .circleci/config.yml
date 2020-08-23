@@ -23,4 +23,5 @@ jobs:
       - run: docker build -t root_japanese-admin-api:latest .
       - run: docker save -o ./japanese-admin-api.tar root_japanese-admin-api:latest
       #- run: scp ./japanese-admin-api.tar root@oskarlindgren.se:/root/japanese-admin-api.tar
+      - run: docker -H "ssh://root@oskarlindgren.se" ps
       - run: docker -H "ssh://root@oskarlindgren.se" load -i ./japanese-admin-api.tar
