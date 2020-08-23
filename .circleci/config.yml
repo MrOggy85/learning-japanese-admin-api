@@ -7,11 +7,11 @@ jobs:
       - add_ssh_keys:
           fingerprints:
               = "da:9b:86:50:c7:25:f0:f8:62:b7:82:dd:d4:97:24:d2"
+      - checkout
       - restore_cache:
           keys:
             - v1-npm-deps-{{ checksum "package-lock.json" }}
             - v1-npm-deps-
-      - checkout
       - run: npm install
       - run: npm run lint
       - save_cache:
@@ -19,6 +19,7 @@ jobs:
               - ~/usr/local/lib/node_modules  # location depends on npm version
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
 
+      - setup_remote_docker
       - run: docker build -t root_japanese-admin-api:latest .
       - run: docker save -o ./japanese-admin-api.tar
       #- run: scp ./japanese-admin-api.tar root@oskarlindgren.se:/root/japanese-admin-api.tar
