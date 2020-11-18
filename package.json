@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "main": "src/app.js",
   "keywords": [],
+  "author": {
+    "name": "Oskar Lindgren",
+    "url": "https://www.oskarlindgren.se"
+  },
   "license": "MIT",
   "scripts": {
     "babel-node": "babel-node --presets=/*a*/ ",
